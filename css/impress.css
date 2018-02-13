@@ -251,15 +251,20 @@ a:focus {
 */
 
 #title {
-    padding: 1em;
+  padding-top: 70px;
+}
+
+#title .subject {
+  padding: 40px;
 }
 
 #title h1 {
-    font-size: 46px;
-    transform: translateZ(50px);
+    font-family: Lobster;
+    font-size: 80px;
+    line-height: 1.4;
 }
 
-#title .footnote {
+#title .speaker {
     font-size: 32px;
 }
 
