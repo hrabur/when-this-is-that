@@ -14,7 +14,9 @@
   <link href="css/impress.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Crafty+Girls|Lobster" rel="stylesheet">
-  <link rel="stylesheet" href="extras/highlight/styles/default.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
 
   <link rel="shortcut icon" href="favicon.png" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
@@ -54,45 +56,236 @@
       <h1 class="subject">ES6 (aka JavaScript) Crash Course<h1>
     </div>
 
-    <div id="functions" class="step" data-x="1400" data-y="0" data-rotate="-90" data-z="0">
+
+
+    <div id="functions" class="step" data-x="1500" data-y="0" data-rotate="-90" data-z="0">
       <h2>Function definition and execution</h2>
-      <a class="jsbin-embed" href="http://jsbin.com/sivowuf/6/embed?js,console&height=30rem">JS Bin on jsbin.com</a>
+      <pre class="javascript"><code>
+// Function declaration
+function calcRectArea(width, height) {
+  return width * height;
+}
+
+// Anonymous function expression
+var calcCircAria = function(radius) {
+  return Math.PI * Math.sqrt(radius);
+}
+
+// Arrow function
+var calcTrapAria = (base1, base2, height) => {
+    return (base1 + base2) * height / 2;
+};
+
+// Function excution
+console.log(calcRectArea(5, 6));
+console.log(calcCircAria(5));
+console.log(calcTrapAria(5, 6, 7));
+    </code></pre>
+    <a href="http://jsbin.com/sivowuf/6/embed?js,console&height=30rem">JS Bin on jsbin.com</a>
     </div>
 
-    <div id="object-methods" class="step" data-x="2000" data-y="0" data-rotate="-90" data-z="0">
+    <div id="object-methods" class="step" data-x="2300" data-y="0" data-rotate="-90" data-z="0">
       <h3>Method definition and execution</h3>
-      <a class="jsbin-embed" href="http://jsbin.com/qicefaz/2/embed?js,console&height=30rem">JS Bin on jsbin.com</a>
+      <pre class="javascript"><code>
+// Method definitions
+var calculator = {
+  calcRectArea(width, height) {
+    return width * height;
+  },
+  calcCircAria: function(radius) {
+    return Math.PI * Math.sqrt(radius);
+  },
+  calcTrapAria: (base1, base2, height) => {
+    return (base1 + base2) * height / 2;
+  }
+}
+
+// Method excution
+console.log(calculator.calcRectArea(5, 6));
+console.log(calculator.calcCircAria(5));
+console.log(calculator.calcTrapAria(5, 6, 7));
+      </code></pre>
+      <a href="http://jsbin.com/qicefaz/2/embed?js,console&height=30rem">JS Bin on jsbin.com</a>
     </div>
 
-    <div id="class-methods" class="step" data-x="2600" data-y="0" data-rotate="-90" data-z="0">
+    <div id="class-methods" class="step" data-x="3100" data-y="0" data-rotate="-90" data-z="0">
       <h3>Class definition</h3>
-      <a class="jsbin-embed" href="http://jsbin.com/yowusev/7/embed?js,console&height=30rem">JS Bin on jsbin.com</a>
+      <pre class="javascript"><code>
+// Class definition
+class Rectangle {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+
+  calcArea() {
+    return this.width * this.height;
+  }
+
+  // Stage 3: Class field declarations for JavaScript
+  isSquare = () => {
+    return this.width = this.height;
+  }
+}
+
+// Method execution
+var rect = new Rectangle(5, 5);
+console.log(rect.calcArea());
+console.log(rect.isSquare());
+      </code></pre>
+      <a href="https://jsbin.com/yowusev/7/embed?js,console">JS Bin on jsbin.com</a>
     </div>
 
-    <div id="test-your-self" class="step" data-x="3000" data-y="1000" data-rotate="90" data-z="0">
+    <div id="test-your-self" class="step" data-x="3600" data-y="1500" data-rotate="90" data-z="0">
       <h1><span class="wow-zoomin">Now!</span> Test your self</h1>
     </div>
 
-    <div id="function-call" class="step" data-x="2600" data-y="1000" data-rotate="90" data-z="0">
+    <div id="function-call" class="step" data-x="3000" data-y="1500" data-rotate="90" data-z="0">
       <h3><code>this</code> in function call</h3>
-      <a class="jsbin-embed" href="http://jsbin.com/kimijoz/3/edit?js,console&height=30rem">JS Bin on jsbin.com</a>
+      <pre><code>
+var a = 5;
+b = 6
+
+function test1() {
+  console.log(this.a);
+}
+
+function test2(x) {
+  console.log(x);
+}
+
+// Delayed with 1 sec execution
+function test3() {
+  setTimeout(test1, 1000);
+}
+
+console.log(window.a);
+console.log(window.b);
+
+test1();
+test2(this.b);
+test3();
+      </code></pre>
+      <a href="https://jsbin.com/kimijoz/4/edit?js,console">JS Bin on jsbin.com</a>
+      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this#Function_context">Function context</a>
     </div>
 
-    <div id="method-call" class="step" data-x="2600" data-y="1000" data-rotate="90" data-z="0">
+    <div id="method-call" class="step" data-x="2100" data-y="1500" data-rotate="90" data-z="0">
       <h3><code>this</code> in method call</h3>
-      <a class="jsbin-embed" href="http://jsbin.com/kimijoz/3/edit?js,console&height=30rem">JS Bin on jsbin.com</a>
+      <pre><code>
+var rectangle = {
+  width: 5,
+  height: 10,
+  calcArea() {
+    return this.width * this.height;
+  },
+  isSquare: () => {
+    return this.width === this.height;
+  }
+}
+
+var rect = { height: 4, width: 4};
+rect.calcArea = rectangle.calcArea;
+rect.isSquare = rectangle.isSquare;
+
+height = 2; width = 2;
+var calcArea = rectangle.calcArea;
+
+// Method excution
+console.log(rectangle.calcArea());
+console.log(rect.calcArea());
+console.log(calcArea());
+console.log(rectangle.isSquare());
+      </code></pre>
+      <a href="https://jsbin.com/geguxab/16/edit?js,console">JS Bin on jsbin.com</a>
+      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions">Arrow functions</a>
     </div>
 
+    <div id="call-class-method" class="step" data-x="1200" data-y="1500" data-rotate="90" data-z="0">
+      <pre><code class="javascript">
+class Rectangle extends React.Component {
+  calcAria() {
+    return this.props.height * this.props.width;
+  }
+
+  alertCalcArea() {
+    alert(this.calcAria());
+  }
+
+  render() {
+    return (
+      &lt;div&gt;
+        &lt;h1&gt;Aria {this.calcAria()}&lt;/h1&gt;
+        &lt;button onClick={this.alertCalcArea}&gt;Test&lt;/button&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+      </code></pre>
+      <a href="https://jsbin.com/cixawim/10/edit?js,output">JS Bin on jsbin.com</a>
+    </div>
+
+    <div id="time-for-dessert" class="step" data-x="1500" data-y="3000" data-rotate="-90" data-z="0">
+      <h1 class="subject">Its time for <span class="wow-rotate">dessert<span></h1>
+    </div>
+
+    <div id="promise-definition" class="step" data-x="2500" data-y="3000" data-rotate="-90" data-z="0">
+      <p>The <code>Promise</code> object represents the eventual completion (or failure) of an asynchronous operation, and its resulting value.</p>
+      <p><img src="https://mdn.mozillademos.org/files/8633/promises.png"/></p>
+    </div>
+
+    <!-- <div id="pyramide-of-doom" data-x="3200" data-y="3000" data-rotate="-90" data-z="0">
+      <h3>Callback pyramid of doom</h3>
+      <pre><code class="javascript">
+  doSomething(function(result) {
+    doSomethingElse(result, function(newResult) {
+      doThirdThing(newResult, function(finalResult) {
+        console.log('Got the final result: ' + finalResult);
+      }, failureCallback);
+    }, failureCallback);
+  }, failureCallback);
+    </code></pre>
+        <pre><code class="javascript">
+doSomething().then(function(result) {
+  return doSomethingElse(result);
+})
+.then(function(newResult) {
+  return doThirdThing(newResult);
+})
+.then(function(finalResult) {
+  console.log('Got the final result: ' + finalResult);
+})
+.catch(failureCallback);
+</code></pre>
+  </div>
+
+    <div id="promise-chaining" class="step" data-x="800" data-y="1500" data-rotate="-90" data-z="0">
+      <pre><code class="javascript">
+var promise = new Promise(function(resolve, reject) {
+  setTimeout(resolve, 100, 1);
+});
+
+promise.then((value) => {
+  console.log("First resolution: " + value);
+  return value + 1;
+}).then(function(value) {
+  console.log("Second resolution: " + value);
+}).catch(error => {
+  // do something with the error
+}).finally(value => {
+  console.log("Finally");
+})
+    </code></pre>
+    <a href="https://jsbin.com/ticaduw/2/edit?js,console">JS Bin on jsbin.com</a>
+  </div> -->
 
     <div id="overview" class="step" data-x="1000" data-y="-1700" data-scale="8">
     </div>
   </div>
 
-  <script src="extras/highlight/highlight.pack.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
   <script src="js/impress.js"></script>
   <script>impress().init();</script>
-  <script src="http://static.jsbin.com/js/embed.min.js?4.1.2"></script>
 </body>
 
 </html>
