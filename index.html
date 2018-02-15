@@ -1,62 +1,98 @@
 <!doctype html>
 
 <html lang="en">
+
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=1024" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <title>Where this is that and Futire is Promise</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=1024" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <title>Where this is that and Futire is Promise</title>
 
-    <meta name="description" content="Guide in the jungle of JavaScript this keyword" />
-    <meta name="author" content="Nikolay Petkov" />
+  <meta name="description" content="Guide in the jungle of JavaScript this keyword" />
+  <meta name="author" content="Nikolay Petkov" />
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Crafty+Girls|Lobster" rel="stylesheet">
-    <link href="css/impress.css" rel="stylesheet" />
+  <link href="css/impress.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Crafty+Girls|Lobster" rel="stylesheet">
+  <link rel="stylesheet" href="extras/highlight/styles/default.css">
 
-    <link rel="shortcut icon" href="favicon.png" />
-    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="shortcut icon" href="favicon.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 </head>
 
 <body class="impress-not-supported">
 
-<div class="fallback-message">
+  <div class="fallback-message">
     <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
     <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
-</div>
+  </div>
 
-<div id="impress">
-  <div id="title" class="step slide present active" data-x="0" data-y="0">
-    <div class="row justify-content-center">
+  <div id="impress">
+    <div id="title" class="step slide present active" data-x="0" data-y="0">
+      <div class="row justify-content-center">
         <div class="event col-xs-6">
           <img src="img/tecgexchange-logo.png" height="65px">
         </div>
-    </div>
-    <div class="row justify-content-center">
-      <div class="subject col-xs-12 text-center">
-        <h1>Where <code>this</code> is that</br>and</br>Future is <code>Promise</code></h1>
+      </div>
+      <div class="row justify-content-center">
+        <div class="subject col-xs-12 text-center">
+          <h1>Where <code>this</code> is that</br>and</br>Future is <code>Promise</code></h1>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="speaker col-xs-6 text-center">
+          <h4>Nikolay Petkov</br><img src="img/proxiad-logo-small.png"></h4>
+        </div>
       </div>
     </div>
-    <div class="row justify-content-center">
-    <div class="speaker col-xs-6 text-center">
-      <h4>Nikolay Petkov</br><img src="img/proxiad-logo-small.png"></h4>
+
+    <div id="history" class="step" data-x="0" data-y="0" data-z="-2000">
+      <img src="img/web-ui-tech-timeline.png">
+    </div>
+
+    <div id="future" class="step" data-x="1000" data-y="0" data-rotate="-90" data-z="0">
+      <h1 class="subject">ES6 (aka JavaScript) Crash Course<h1>
+    </div>
+
+    <div id="functions" class="step" data-x="1400" data-y="0" data-rotate="-90" data-z="0">
+      <h2>Function definition and execution</h2>
+      <a class="jsbin-embed" href="http://jsbin.com/sivowuf/6/embed?js,console&height=30rem">JS Bin on jsbin.com</a>
+    </div>
+
+    <div id="object-methods" class="step" data-x="2000" data-y="0" data-rotate="-90" data-z="0">
+      <h3>Method definition and execution</h3>
+      <a class="jsbin-embed" href="http://jsbin.com/qicefaz/2/embed?js,console&height=30rem">JS Bin on jsbin.com</a>
+    </div>
+
+    <div id="class-methods" class="step" data-x="2600" data-y="0" data-rotate="-90" data-z="0">
+      <h3>Class definition</h3>
+      <a class="jsbin-embed" href="http://jsbin.com/yowusev/7/embed?js,console&height=30rem">JS Bin on jsbin.com</a>
+    </div>
+
+    <div id="test-your-self" class="step" data-x="3000" data-y="1000" data-rotate="90" data-z="0">
+      <h1><span class="wow-zoomin">Now!</span> Test your self</h1>
+    </div>
+
+    <div id="function-call" class="step" data-x="2600" data-y="1000" data-rotate="90" data-z="0">
+      <h3><code>this</code> in function call</h3>
+      <a class="jsbin-embed" href="http://jsbin.com/kimijoz/3/edit?js,console&height=30rem">JS Bin on jsbin.com</a>
+    </div>
+
+    <div id="method-call" class="step" data-x="2600" data-y="1000" data-rotate="90" data-z="0">
+      <h3><code>this</code> in method call</h3>
+      <a class="jsbin-embed" href="http://jsbin.com/kimijoz/3/edit?js,console&height=30rem">JS Bin on jsbin.com</a>
+    </div>
+
+
+    <div id="overview" class="step" data-x="1000" data-y="-1700" data-scale="8">
     </div>
   </div>
-</div>
 
-  <div id="history" class="step" data-x="0" data-y="0" data-z="-2000" >
-    <img src="img/web-ui-tech-timeline.png">
-  </div>
-
-  <div id="future" class="step" data-x="1500" data-y="0" data-z="-2000" >
-    <img src="img/fog.jpeg">
-  </div>
-
-  <div id="overview" class="step" data-x="1000" data-y="-1700" data-scale="8">
-  </div>
-</div>
-
-<script src="js/impress.js"></script>
-<script>impress().init();</script>
+  <script src="extras/highlight/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script src="js/impress.js"></script>
+  <script>impress().init();</script>
+  <script src="http://static.jsbin.com/js/embed.min.js?4.1.2"></script>
 </body>
+
 </html>
