@@ -234,52 +234,75 @@ class Rectangle extends React.Component {
       <p><img src="https://mdn.mozillademos.org/files/8633/promises.png"/></p>
     </div>
 
-    <!-- <div id="pyramide-of-doom" data-x="3200" data-y="3000" data-rotate="-90" data-z="0">
+    <div id="pyramide-of-doom" class="step" data-x="3200" data-y="3000" data-rotate="-90" data-z="0">
       <h3>Callback pyramid of doom</h3>
       <pre><code class="javascript">
-  doSomething(function(result) {
-    doSomethingElse(result, function(newResult) {
-      doThirdThing(newResult, function(finalResult) {
-        console.log('Got the final result: ' + finalResult);
-      }, failureCallback);
+doSomething(function(result) {
+  doSomethingElse(result, function(newResult) {
+    doThirdThing(newResult, function(finalResult) {
+      console.log('Got the final result: ' + finalResult);
     }, failureCallback);
   }, failureCallback);
-    </code></pre>
-        <pre><code class="javascript">
-doSomething().then(function(result) {
-  return doSomethingElse(result);
-})
-.then(function(newResult) {
-  return doThirdThing(newResult);
-})
-.then(function(finalResult) {
-  console.log('Got the final result: ' + finalResult);
-})
-.catch(failureCallback);
-</code></pre>
-  </div>
+}, failureCallback);
+      </code></pre>
+    </div>
 
-    <div id="promise-chaining" class="step" data-x="800" data-y="1500" data-rotate="-90" data-z="0">
+    <div id="promise-chaining" class="step" data-x="4000" data-y="3000" data-rotate="-90" data-z="0">
       <pre><code class="javascript">
-var promise = new Promise(function(resolve, reject) {
-  setTimeout(resolve, 100, 1);
+let promise = fetch("https://api.github.com/users/hrabur");
+promise.then(response => {
+  console.log(response.status + " " + response.statusText);
+  // returns promise to read entire input stream and turn it to JSON
+  return response.json();
+}).then(function(data) {
+  let reposUrl = data.repos_url;
+  console.log("Repos URL: " + reposUrl);
+  return fetch(reposUrl);
+}).then(response => {
+  console.log(response.status + " " + response.statusText);
+  return response.json();
+}).then(function(repos) {
+  repos
+    .map(repo => repo.name)
+    .filter(name => console.log(name));
+}).catch(error => {
+  console.log(error);
+}).finally(value => {
+  console.log("Finally date is read sequentaly");
 });
 
-promise.then((value) => {
-  console.log("First resolution: " + value);
-  return value + 1;
-}).then(function(value) {
-  console.log("Second resolution: " + value);
-}).catch(error => {
-  // do something with the error
-}).finally(value => {
-  console.log("Finally");
-})
+console.log("Fetch is async");
     </code></pre>
-    <a href="https://jsbin.com/ticaduw/2/edit?js,console">JS Bin on jsbin.com</a>
-  </div> -->
+    <a href="http://jsbin.com/ticaduw/5/edit?js,output">JS Bin on jsbin.com</a>
+  </div>
 
-    <div id="overview" class="step" data-x="1000" data-y="-1700" data-scale="8">
+  <div id="async-await" class="step" data-x="5000" data-y="3000" data-rotate="-90" data-z="0">
+    <pre><code class="javascript">
+listRepos = async function() {
+  try {
+    let profileResp = await fetch("https://api.github.com/users/hrabur");
+    console.log(profileResp.status + " " + profileResp.statusText);
+    let profile = await profileResp.json();
+    let reposUrl = profile.repos_url;
+    console.log("Repos URL: " + reposUrl);
+    let reposResp = await fetch(reposUrl);
+    console.log(reposResp.status + " " + reposResp.statusText);
+    let repos = await reposResp.json();
+    repos
+      .map(repo => repo.name)
+      .filter(name => console.log(name));
+  } catch(error) {
+    console.log(error);
+  }
+}
+
+listRepos()
+console.log("Fetch is async");
+    </code></pre>
+    <a href="http://jsbin.com/quboce/edit?js,console">JS Bin on jsbin.com</a>
+  </div>
+
+  <div id="overview" class="step" data-x="1000" data-y="-1700" data-scale="8">
     </div>
   </div>
 
